@@ -6,7 +6,7 @@ package com.view;
 
 /**
  *
- * @author Mustafa
+ * @author Murshad Ali
  */
 
 
@@ -15,6 +15,7 @@ import java.awt.*;
 import com.controller.SidebarController;
 import com.controller.VehicleController;
 import com.controller.SlotController;
+import com.controller.StatsController;
 
 public class Dashboard extends JPanel {
     public JPanel centerpanel;
@@ -33,9 +34,9 @@ public class Dashboard extends JPanel {
         
         add(sidebar,BorderLayout.WEST);
         add(header,BorderLayout.NORTH);
+        
         centerpanel = new JPanel();
         centerpanel.setLayout(new BorderLayout());
-        
         centerpanel.add(stats);
         add(centerpanel,BorderLayout.CENTER);
         
@@ -48,10 +49,16 @@ public class Dashboard extends JPanel {
          // controller here
          
          // sidebar controller pass krunga dashboard object , sidebar ka object, entry ,stats, exit, slots, report
+         // ek method banaya tha sideBarclick jime mene all button handler datle hai
          SidebarController side = new SidebarController();
          side.sideBarClick(this, sidebar, entry, stats, exit,slots, report);
-         //vehicle controller
          
+        // stats controller
+        StatsController statClr = new StatsController();
+        statClr.displayStatsController(stats);
+        
+        
+        //vehicle controller
          VehicleController vc = new VehicleController();
          vc.createVehicleController(entry);
          vc.exitVehicleController(exit);

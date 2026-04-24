@@ -111,7 +111,7 @@ public class VehicleController {
                            
                         }
                         else{
-                            String msg = "vehcle no: "+vehicleNo+"\n"+"fee: "+ fee;
+                            String msg = "vehcle no: "+vehicleNo+"\n"+"fee: ₹"+ fee;
                             JOptionPane.showMessageDialog(exit,msg);
                         }
                     

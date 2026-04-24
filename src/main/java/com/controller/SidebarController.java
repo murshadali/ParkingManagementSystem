@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.controller;
 
 /**
  *
- * @author Mustafa
+ * @author Murshad Ali
  */
 import com.view.Dashboard;
 import com.view.Entry;
@@ -24,6 +21,10 @@ public class SidebarController {
         sidebar.statsBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                // stats display java dashbord per click karu tu
+                StatsController statClr = new StatsController();
+                statClr.displayStatsController(stats);
+                // rediplay panel
                 dashboard.centerpanel.removeAll();
                 
                 dashboard.centerpanel.add(stats,BorderLayout.CENTER);
