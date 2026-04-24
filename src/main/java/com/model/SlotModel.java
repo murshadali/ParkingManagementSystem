@@ -89,7 +89,7 @@ public class SlotModel {
     public ResultSet getSotByType(String slotType){
         Connection conn = Database.dbconnection();
         try{
-            String query = "select *from slot where type = ?";
+            String query = "select *from slot where type = ? AND status='Available'";
             PreparedStatement stm = conn.prepareStatement(query);
             stm.setString(1,slotType);
             return stm.executeQuery();

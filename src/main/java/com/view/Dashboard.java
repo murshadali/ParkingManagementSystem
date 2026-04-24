@@ -50,9 +50,12 @@ public class Dashboard extends JPanel {
          // sidebar controller pass krunga dashboard object , sidebar ka object, entry ,stats, exit, slots, report
          SidebarController side = new SidebarController();
          side.sideBarClick(this, sidebar, entry, stats, exit,slots, report);
+         //vehicle controller
          
          VehicleController vc = new VehicleController();
-         vc.createVehicle(entry);
+         vc.createVehicleController(entry);
+         vc.exitVehicleController(exit);
+         vc.searchVehicleController(exit);
          
          // slot controllers method
          SlotController sc = new SlotController();

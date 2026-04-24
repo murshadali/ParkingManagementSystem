@@ -43,20 +43,20 @@ public class ParkingModel {
         return null;
     }
     
-     public void exitVehicle(String vehicleNo, double fee) {
+   public boolean exitVehicle(String vehicleNo, double fee) {
         try {
             Connection conn = Database.dbconnection();
             // 1. Get slot_id
             String getQuery = "SELECT slot_id FROM parking WHERE vehicle_no=? AND exit_time IS NULL";
             PreparedStatement ps1 = conn.prepareStatement(getQuery);
             ps1.setString(1, vehicleNo);
-
+            
             ResultSet rs = ps1.executeQuery();
 
             if (rs.next()) {
                 int slotId = rs.getInt("slot_id");
 
-                // 2. Update parking (exit)
+                // 2. Update parking 
                 String updateParking = "UPDATE parking SET exit_time=NOW(), fee=? WHERE vehicle_no=? AND exit_time IS NULL";
                 PreparedStatement ps2 = conn.prepareStatement(updateParking);
                 ps2.setDouble(1, fee);
@@ -68,12 +68,31 @@ public class ParkingModel {
                 PreparedStatement ps3 = conn.prepareStatement(updateSlot);
                 ps3.setInt(1, slotId);
                 ps3.executeUpdate();
+                return true;
             }
 
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
+        return false;
     }
+   
+   public ResultSet searchVehicle(String vehicle_no){
+       Connection conn = Database.dbconnection();
+       ResultSet result=null;
+       try{
+           String query = "SELECT v.vehicle_no, v.type, p.entry_time FROM vehicle v JOIN parking p ON v.vehicle_no = p.vehicle_no WHERE v.vehicle_no = ? AND p.exit_time IS NULL;";
+           PreparedStatement stm = conn.prepareStatement(query);
+           stm.setString(1, vehicle_no);
+           result = stm.executeQuery();
+       }
+       catch(SQLException e){
+           System.out.println("Error: int exit"+ e.getMessage());
+           
+       }
+       return result;
+   }
+
 }
 
     
