@@ -74,6 +74,11 @@ public class SidebarController {
         sidebar.reportBtn.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                // ya per report banala controller call kiya hai so that button click per value aaye
+                ReportController rc = new ReportController();
+                rc.allentriesController(report);
+                
+                
                 dashboard.centerpanel.removeAll();
                 System.out.println("hello");
                    

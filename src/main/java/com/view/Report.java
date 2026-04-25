@@ -14,7 +14,7 @@ public class Report extends JPanel {
     public JTextField vehicleField;
     public JButton searchBtn, showAllBtn;
     public JTable table;
-    private DefaultTableModel model;
+    public DefaultTableModel model;
 
     public Report() {
         setLayout(new BorderLayout(10,10));
