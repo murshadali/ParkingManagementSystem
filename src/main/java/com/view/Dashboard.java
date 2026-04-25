@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.view;
 
 /**
@@ -16,6 +13,7 @@ import com.controller.SidebarController;
 import com.controller.VehicleController;
 import com.controller.SlotController;
 import com.controller.StatsController;
+import com.controller.ReportController;
 
 public class Dashboard extends JPanel {
     public JPanel centerpanel;
@@ -71,7 +69,9 @@ public class Dashboard extends JPanel {
            sc.addSlotController(slots);
            sc.deleteSlotController(slots);
            
-         
+         // report controller note jo all entries bana controller hai bo sidebarController me call kiya hai
+         ReportController rc = new ReportController();
+         rc.generateReportController(report);
          
     }
 }

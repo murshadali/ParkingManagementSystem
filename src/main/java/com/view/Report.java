@@ -12,9 +12,11 @@ import javax.swing.table.DefaultTableModel;
 public class Report extends JPanel {
 
     public JTextField vehicleField;
-    public JButton searchBtn, showAllBtn;
+    public JButton searchBtn, genReportBtn;
     public JTable table;
     public DefaultTableModel model;
+    public JLabel totalEarningLabel;
+    public JLabel totalVehicleLabel;
 
     public Report() {
         setLayout(new BorderLayout(10,10));
@@ -25,12 +27,12 @@ public class Report extends JPanel {
 
         vehicleField = new JTextField(10);
         searchBtn = new JButton("Search");
-        showAllBtn = new JButton("Show All");
+        genReportBtn = new JButton("generate Report");
 
         top.add(new JLabel("Vehicle No:"));
         top.add(vehicleField);
         top.add(searchBtn);
-        top.add(showAllBtn);
+        top.add(genReportBtn);
 
         //Table
         model = new DefaultTableModel();
@@ -50,8 +52,10 @@ public class Report extends JPanel {
 
         //Bottom Panel 
         JPanel bottom = new JPanel();
-        JLabel totalLabel = new JLabel("Total Vehicles: 2   Earnings: ₹100");
-        bottom.add(totalLabel);
+         totalVehicleLabel = new JLabel("Total Vehicles: 2   Earnings: ₹100");
+         totalEarningLabel = new JLabel ("Total Earning: ");
+        bottom.add(totalVehicleLabel);
+        bottom.add(totalEarningLabel);
 
         // layout likha hu 
         add(top, BorderLayout.NORTH);
@@ -67,7 +71,7 @@ public class Report extends JPanel {
                 return;
             }
 
-      
+            boolean found = false;
             for (int i = 0; i < model.getRowCount(); i++) {
                 String v = model.getValueAt(i, 1).toString();
 
@@ -75,7 +79,11 @@ public class Report extends JPanel {
                     table.removeRowSelectionInterval(i, i);
                 } else {
                     table.setRowSelectionInterval(i, i);
+                    found =true;
                 }
+            }
+            if(!found){
+                JOptionPane.showMessageDialog(this, "Vehicle Not Found!");
             }
         });
     }
