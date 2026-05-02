@@ -6,7 +6,7 @@ package com.view;
 
 /**
  *
- * @author Murshad Ali
+ * @author Murshad Ali Mohammad Firdosh Alam
  */
  
 import com.controller.SlotController;

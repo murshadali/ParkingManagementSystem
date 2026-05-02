@@ -3,7 +3,7 @@ package com.model;
 
 /**
  *
- * @author Murshad Ali
+ * @author Murshad Ali Mohammad Firdosh Alam
  */
 import java.sql.*;
 public class StatsModel {

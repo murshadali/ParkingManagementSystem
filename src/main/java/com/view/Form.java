@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.view;
 import javax.swing.*;
 import java.awt.*;
 /**
  *
- * @author Murshad Ali
+ * @author Murshad Ali Mohammad Firdosh Alam
  */
 
 
@@ -21,7 +18,7 @@ public class Form extends JPanel {
     public Form() {
         setLayout(new GridBagLayout()); // center the card
 
-        // Card Panel (like white box in image)
+        // Card Panel 
         JPanel card = new JPanel();
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
         card.setPreferredSize(new Dimension(300, 300));

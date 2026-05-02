@@ -2,7 +2,7 @@ package com.controller;
 
 /**
  *
- * @author Murshad Ali
+ * @author Murshad Ali Mohammad Firdosh Alam
  */
 import java.sql.*;
 //import javax.swing.table.DefaultTableModel;

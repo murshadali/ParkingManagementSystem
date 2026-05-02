@@ -3,7 +3,7 @@ package com.controller;
 
 /**
  *
- * @author Murshad Ali
+ * @author Murshad Ali Mohammad Firdosh Alam
  */
 import com.view.Dashboard;
 import com.view.Entry;
